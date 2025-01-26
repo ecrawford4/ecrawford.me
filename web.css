@@ -479,6 +479,55 @@ audio::-webkit-media-controls-panel:hover {
   height: auto;
 }
 
+/* testing mobile style */
+@media (max-width: 700px) {
+  * {
+    all: unset;
+    color: inherit;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  h3, h4 {
+    font-size: 1.2em;
+  }
+
+  p, a {
+    font-size: 1em;
+  }
+
+  .left-pane {
+    width: 100%;
+    height: auto;
+    position: relative;
+    box-shadow: none;
+  }
+
+  .container {
+    flex-direction: column;
+  }
+
+  main {
+    width: 100%;
+    max-width: none;
+    height: auto;
+  }
+
+  .grid-container, .pinned-project-grid-container, .music-folio-grid-container {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-item {
+    max-width: 100%;
+  }
+}
+
 /* Google Fonts */
 
 .atkinson-hyperlegible-regular {
@@ -610,48 +659,4 @@ audio::-webkit-media-controls-panel:hover {
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
-}
-
-/* testing mobile style */
-@media (max-width: 600px) {
-  h1 {
-    font-size: 2em;
-  }
-
-  h2 {
-    font-size: 1.5em;
-  }
-
-  h3, h4 {
-    font-size: 1.2em;
-  }
-
-  p, a {
-    font-size: 1em;
-  }
-
-  .left-pane {
-    width: 100%;
-    height: auto;
-    position: relative;
-    box-shadow: none;
-  }
-
-  .container {
-    flex-direction: column;
-  }
-
-  main {
-    width: 100%;
-    max-width: none;
-    height: auto;
-  }
-
-  .grid-container, .pinned-project-grid-container, .music-folio-grid-container {
-    grid-template-columns: 1fr;
-  }
-
-  .grid-item {
-    max-width: 100%;
-  }
 }
