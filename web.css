@@ -512,6 +512,10 @@ audio::-webkit-media-controls-panel:hover {
     font-size: 1em;
   }
 
+  main {
+    margin-bottom: 2rem; /* Add space below main */
+  }
+
   footer {
     font-family: monospace;
     width: 100%;
