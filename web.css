@@ -145,6 +145,7 @@ h4 {
   margin: 1.25em auto; /* 20px */
   text-align: center;
   font-size: 1.25em;
+  margin-bottom: 1em;
 }
 
 /* Paragraph styling with the same width as the image */
@@ -386,8 +387,12 @@ th {
 details h4 {
   color: #bbb;
   text-align: left;
-  margin-bottom: 0;
   margin-left: 1.25em; /* 20px */
+  border-bottom:#381e1e 1px solid; 
+}
+
+details p {
+  padding-bottom: .5em;
 }
 
 figure.contact {
@@ -512,11 +517,11 @@ audio::-webkit-media-controls-panel:hover {
     font-size: 1em;
   }
 
-  main {
-    margin-bottom: 2rem; /* Add space below main */
-  }
+  /* main {
+    margin-bottom: 2rem; /* Add space below main 
+  } */
 
-  footer {
+  /* footer {
     font-family: monospace;
     width: 100%;
     background-color: #6e6863;
@@ -527,7 +532,7 @@ audio::-webkit-media-controls-panel:hover {
     left: 0;
     text-align: center;
     color: #cfc3ae;
-  }
+  } */
 
   .left-pane {
     width: 100%;
