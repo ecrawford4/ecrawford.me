@@ -484,6 +484,12 @@ audio::-webkit-media-controls-panel:hover {
   height: auto;
 }
 
+figure.pinned-project-grid-container {
+  border-top: #381e1e 1.5px solid;
+  border-bottom: #381e1e 1.5px solid; 
+} 
+
+
 /* Hide copyright paragraph on mobile */
 @media (min-width: 801px) {
   footer {
@@ -568,8 +574,10 @@ audio::-webkit-media-controls-panel:hover {
 
   .grid-container, .pinned-project-grid-container, .music-folio-grid-container {
     grid-template-columns: 1fr;
+    max-width: 80%;
+    border-top: #381e1e 1px solid;
+    border-bottom: #381e1e 1px solid; 
   }
-
   .grid-item {
     max-width: 100%;
   }
