@@ -15,22 +15,22 @@ import '../global.css';
 		<header />
 		<div class="layout">
 			<nav class="nav-left">
-				<h3>Left Nav</h3>
+				<h3>Navigation</h3>
 					<ul>
-						<li><a href="#">Item One</a></li>
-						<li><a href="#">Item Two</a></li>
-						<li><a href="#">Item Three</a></li>
+						<li><a href="./Home">Home</a></li>
+						<li><a href="./Resume">Résumé</a></li>
+						<li><a href="">Sitemap</a></li>
 					</ul>
 				</nav>
 			<main class="content">
 				<slot />
 			</main>
 			<aside class="nav-right">
-				<h3>Right Panel</h3>
+				<h3>About Me</h3>
 				<p>Secondary content or metadata.</p>
 			</aside>
 		</div>
-		<footer />
+		<footer>© 2026 Ethan Crawford</footer>
 
 		<script>
 		const content = document.querySelector('.content');
