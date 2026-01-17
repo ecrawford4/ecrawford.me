@@ -1,3 +1,6 @@
+---
+import '../global.css';
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,18 +8,46 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<link rel="stylesheet" href="../global.css">
+		<title>Ethan Crawford</title>
 	</head>
 	<body>
-		<slot />
+		<header />
+		<div class="layout">
+			<nav class="nav-left">
+				<h3>Left Nav</h3>
+					<ul>
+						<li><a href="#">Item One</a></li>
+						<li><a href="#">Item Two</a></li>
+						<li><a href="#">Item Three</a></li>
+					</ul>
+				</nav>
+			<main class="content">
+				<slot />
+			</main>
+			<aside class="nav-right">
+				<h3>Right Panel</h3>
+				<p>Secondary content or metadata.</p>
+			</aside>
+		</div>
+		<footer />
+
+		<script>
+		const content = document.querySelector('.content');
+		let scrollbarTimeout;
+
+		function showScrollbar() {
+			content.classList.add('show-scrollbar');
+
+			clearTimeout(scrollbarTimeout);
+			scrollbarTimeout = setTimeout(() => {
+			content.classList.remove('show-scrollbar');
+			}, 2000);
+		}
+
+		content.addEventListener('scroll', showScrollbar);
+		content.addEventListener('mouseenter', showScrollbar);
+		</script>
+
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
