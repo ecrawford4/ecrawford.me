@@ -1,5 +1,7 @@
 ---
 import '../global.css';
+const path = Astro.url.pathname;
+const isActive = (href) => path.startsWith(href);
 ---
 <!doctype html>
 <html lang="en">
@@ -9,17 +11,42 @@ import '../global.css';
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<link rel="stylesheet" href="../global.css">
-		<title>Ethan Crawford</title>
+		<title>Ethan Crawford's Professional Website</title>
 	</head>
 	<body>
-		<header />
+		<header class="site-header">
+			<h1>Ethan N. Crawford</h1>
+
+			<div class="theme-switcher">
+				<label for="theme-select" class="sr-only">Theme</label>
+				<select id="theme-select">
+					<option value="dark">Dark</option>
+					<option value="light">Light</option>
+					<option value="high-contrast">High Contrast</option>
+				</select>
+			</div>
+		</header>
+
 		<div class="layout">
 			<nav class="nav-left">
 				<h3>Navigation</h3>
 					<ul>
-						<li><a href="./Home">Home</a></li>
-						<li><a href="./Resume">Résumé</a></li>
-						<li><a href="">Sitemap</a></li>
+						<li class={isActive('/Home') ? 'active' : ''}>
+							<a href="/Home">Home</a>
+						</li>
+						<li class={isActive('/Resume') ? 'active' : ''}>
+							<a href="/Resume">Résumé</a>
+						</li>
+						<li class={isActive('/Sitemap') ? 'active' : ''}>
+							<a href="/Sitemap">Sitemap</a>
+						</li>
+					</ul>
+					<h3>External Links</h3>
+					<ul>
+						<li><a href="">LinkedIn</a></li>
+						<li><a href="">GitHub</a></li>
+						<li><a href=""></a></li>
+						<li><a href=""></a></li>
 					</ul>
 				</nav>
 			<main class="content">
@@ -49,5 +76,26 @@ import '../global.css';
 		content.addEventListener('mouseenter', showScrollbar);
 		</script>
 
+		<script>
+			const select = document.getElementById('theme-select');
+			const savedTheme = localStorage.getItem('theme');
+
+			if (savedTheme) {
+				document.documentElement.dataset.theme = savedTheme;
+				select.value = savedTheme;
+			}
+
+			select.addEventListener('change', () => {
+				const theme = select.value;
+
+				if (theme === 'dark') {
+					document.documentElement.removeAttribute('data-theme');
+					localStorage.removeItem('theme');
+				} else {
+					document.documentElement.dataset.theme = theme;
+					localStorage.setItem('theme', theme);
+				}
+			});
+		</script>
 	</body>
 </html>
