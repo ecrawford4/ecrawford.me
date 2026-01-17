@@ -1,0 +1,218 @@
+/* =========================================================
+   THEME VARIABLES
+   ========================================================= */
+
+/* Default: Dark Theme */
+:root {
+  /* Background colors */
+  --bg-primary: #292525;      /* page background */
+  --bg-secondary: #1e1e1e;    /* header, footer, nav */
+  --bg-tertiary: #2a2a2a;     /* cards, highlights */
+
+  /* Foreground colors */
+  --text-color: #eaeaea;
+  --link-color: #7ab7ff;
+  --border-color: #3a3a3a;
+}
+
+/* Light Theme */
+[data-theme="light"] {
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #eaeaea;
+
+  --text-color: #1a1a1a;
+  --link-color: #005fcc;
+  --border-color: #cccccc;
+}
+
+/* =========================================================
+   GLOBAL RESET / BASE
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%; /* 1rem = browser default */
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* =========================================================
+   AUTO-HIDING SCROLLBAR
+   ========================================================= */
+
+/* Base (hidden state) */
+.content {
+  scrollbar-width: none; /* Firefox */
+}
+
+.content::-webkit-scrollbar {
+  width: 0;
+}
+
+.content::-webkit-scrollbar-thumb {
+  transition: background-color 0.2s ease;
+}
+
+/* Visible state */
+.content.show-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg-tertiary) var(--bg-secondary);
+}
+
+.content.show-scrollbar::-webkit-scrollbar {
+  width: 0.75rem;
+}
+
+.content.show-scrollbar::-webkit-scrollbar-track {
+  background-color: var(--bg-secondary);
+  border-left: 0.0625rem solid var(--border-color);
+}
+
+.content.show-scrollbar::-webkit-scrollbar-thumb {
+  background-color: var(--bg-tertiary);
+  border-radius: 0.5rem;
+  border: 0.1875rem solid var(--bg-secondary);
+}
+
+.content.show-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: color-mix(
+    in srgb,
+    var(--bg-tertiary) 80%,
+    var(--text-color) 20%
+  );
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+header {
+  background-color: var(--bg-secondary);
+  border-bottom: 0.0625rem solid var(--border-color);
+  padding: 1rem 2rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+footer {
+  background-color: var(--bg-secondary);
+  border-top: 0.0625rem solid var(--border-color);
+  padding: 1rem 2rem;
+  font-size: 0.875rem;
+}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+/*
+  Structure:
+
+  <header />
+  <div class="layout">
+    <nav class="nav-left"></nav>
+    <main class="content"></main>
+    <aside class="nav-right"></aside>
+  </div>
+  <footer />
+*/
+
+.layout {
+  display: grid;
+  grid-template-columns: 24rem 1fr 24rem;
+  height: calc(100vh - 8rem); /* header + footer combined */
+}
+
+/* Left and right static navigation */
+.nav-left,
+.nav-right {
+  background-color: var(--bg-secondary);
+  padding: 1rem;
+}
+
+.nav-left {
+  border-right: 0.0625rem solid var(--border-color);
+}
+
+.nav-right {
+  border-left: 0.0625rem solid var(--border-color);
+}
+
+/* =========================================================
+   SCROLLING CENTER CONTENT
+   ========================================================= */
+
+.content {
+  background-color: var(--bg-primary);
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* Optional content container */
+.content .card {
+  background-color: var(--bg-tertiary);
+  border: 0.0625rem solid var(--border-color);
+  border-radius: 0.375rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* =========================================================
+   LINKS & TEXT
+   ========================================================= */
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================
+   RESPONSIVE BEHAVIOR
+   ========================================================= */
+
+@media (max-width: 56rem) {
+  .layout {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+
+  .nav-left,
+  .nav-right {
+    display: none;
+  }
+
+  .content {
+    overflow-y: visible;
+    padding: 1.5rem;
+  }
+}
