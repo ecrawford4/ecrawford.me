@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<section>
+		<h2>Welcome</h2>
+		<p>
+			This is a test page to verify the global layout, theme variables,
+			and scrolling behavior. If everything is working, the center column
+			should scroll independently while the navigation remains static.
+		</p>
+		<p>
+			Here is a <a href="#">test link</a> to check link coloring and hover
+			styles.
+		</p>
+	</section>
+
+	<section class="card">
+		<h3>Card Element</h3>
+		<p>
+			This card uses the <code>.card</code> class, which should apply the
+			tertiary background color, border, and padding.
+		</p>
+	</section>
+
+	<section class="card">
+		<h3>Typography Test</h3>
+		<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer
+			fermentum, augue at placerat dignissim, ligula orci facilisis
+			tortor, nec volutpat sapien risus sit amet odio.
+		</p>
+		<p>
+			Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+			accusantium doloremque laudantium, totam rem aperiam.
+		</p>
+	</section>
+
+	<section class="card">
+		<h3>Scrollable Content</h3>
+		<p>This section intentionally repeats content to force scrolling.</p>
+
+		{Array.from({ length: 20 }).map((_, i) => (
+			<p>
+				Line {i + 1}: The quick brown fox jumps over the lazy dog.
+			</p>
+		))}
+	</section>
+</Layout>
