@@ -11,6 +11,8 @@
 
   /* Foreground colors */
   --text-color: #eaeaea;
+  --text-secondary: #9c9794;
+  --text-selected: #aaaaaa;
   --link-color: #7ab7ff;
   --border-color: #3a3a3a;
 }
@@ -100,6 +102,95 @@ body {
   );
 }
 
+info {
+    color: var(--text-secondary);
+    font-size: 90%;
+    font-weight: 200;
+    font-style: italic;
+    text-align: right;
+}
+
+/* Each section spacing */
+.card .section {
+    margin-bottom: 1rem;
+}
+
+/* Collapsed content */
+.card .section-content {
+    max-height: 0;          /* hide content */
+    overflow: hidden;       /* prevent scrollbars */
+    transition: max-height 0.3s ease, padding 0.3s ease;
+    padding: 0 0;           /* no vertical spacing when collapsed */
+    }
+
+/* Expand only the section being hovered */
+.card .section:hover .section-content {
+    max-height: 500px;      /* enough for most content, adjust if needed */
+    padding: 0.5rem 0;      /* spacing when expanded */
+}
+
+.card .section .section-content p {
+    border-right: 1px solid var(--border-color);
+    padding-right: 0.25rem;
+}
+h1 {
+    font-size: 2rem;
+    font-weight: 20;
+}
+ 
+h2 {
+    font-size: 1.5rem;
+    font-weight: 300;
+    cursor: pointer;
+    margin: 0.25rem 0;
+} 
+
+h4 {
+    font-size: 1.0625rem;
+    font-weight: 300;
+    cursor: pointer;
+    margin: 0.25rem 0;
+    font-style: oblique;
+    color: var(--text-selected)
+}
+
+p {
+    margin: auto;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    text-align: right;
+    font-weight: 300;
+}
+
+.nav-right * {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.nav-right p {
+    text-align: left;
+}
+
+.nav-left {
+    text-align: right;
+}
+
+
+
+/* Optional styling for section headers */
+h3 {
+  font-size: 1.125rem;
+  font-weight: 300;
+  cursor: pointer;
+  margin: 0.25rem 0;
+}
+
+/* Optional hover effect on header text */
+.card .section:hover h3 {
+  color: var(--text-selected);
+}
+
+
 
 /* =========================================================
    HEADER
@@ -125,6 +216,9 @@ footer {
   border-top: 0.0625rem solid var(--border-color);
   padding: 1rem 2rem;
   font-size: 0.875rem;
+  text-align: center;
+  font-weight: 100;
+  color: var(--text-secondary);
 }
 
 /* =========================================================
