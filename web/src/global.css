@@ -351,6 +351,11 @@ p {
   gap: 0.5rem;
 }
 
+.nav-right ul {
+  /* left-align the other buttons */
+  align-items: flex-start;
+}
+
 /* =========================================================
    NAV BUTTONS
    ========================================================= */
