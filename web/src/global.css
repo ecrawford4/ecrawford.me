@@ -163,17 +163,17 @@
 
 
 [data-theme="high-contrast-dark"] {
-  --bg-primary: #0f1115;
-  --bg-secondary: #161922;
-  --bg-tertiary: #1d2130;
+  --bg-primary: #000000;
+  --bg-secondary: #000607;
+  --bg-tertiary: #060700;
 
   --text-color: #ffffff;
   --text-secondary: #c7c7c7;
   --text-selected: #eaeaea;
 
   --link-color: #00d1ff;
-  --border-color: #2a2f45;
-  --active-color: #7aa2ff;
+  --border-color: #ffffff;
+  --active-color: #d6e2ff;
 }
 
 
