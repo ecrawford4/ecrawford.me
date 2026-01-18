@@ -6,31 +6,176 @@
 :root {
   /* Background colors */
   --bg-primary: #292525;      /* page background */
-  --bg-secondary: #1e1e1e;    /* header, footer, nav */
-  --bg-tertiary: #2a2a2a;     /* cards, highlights */
+  --bg-secondary: #231f1f;   /* header, footer, nav */
+  --bg-tertiary: #272222;     /* cards, highlights */
 
   /* Foreground colors */
   --text-color: #eaeaea;
   --text-secondary: #9c9794;
   --text-selected: #aaaaaa;
   --link-color: #7ab7ff;
-  --border-color: #3a3a3a;
+  --border-color: #797070;
   --active-color: #d6d2eb;
 }
 
 /* Light Theme */
 [data-theme="light"] {
-  --bg-primary: #f5f5f5;
-  --bg-secondary: #ffffff;
-  --bg-tertiary: #eaeaea;
+  --bg-primary: #d5d6ce;
+  --bg-secondary: #cfd1c6;
+  --bg-tertiary: #dcddda;
 
   --text-color: #1a1a1a;
   --text-secondary: #464242;
-  --text-selected: #6d046d;
+  --text-selected: #810443;
   --link-color: #005fcc;
   --border-color: #9f9ea0;
   --active-color: #7a5a5a;
 }
+
+[data-theme="frosty"] {
+  --bg-primary: #f4f3f2;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #e8e6e4;
+
+  --text-color: #1e1b1b;
+  --text-secondary: #5f5a58;
+  --text-selected: #3a3635;
+
+  --link-color: #005fcc;
+  --border-color: #c9c4c2;
+  --active-color: #2f3fa4;
+}
+
+[data-theme="sepia"] {
+  --bg-primary: #f3ede4;
+  --bg-secondary: #efe6d8;
+  --bg-tertiary: #e6dccd;
+
+  --text-color: #2f2a25;
+  --text-secondary: #5c5248;
+  --text-selected: #3b332c;
+
+  --link-color: #8b5e34;
+  --border-color: #c8b8a6;
+  --active-color: #6b4f2d;
+}
+
+[data-theme="nord"] {
+  --bg-primary: #2e3440;
+  --bg-secondary: #3b4252;
+  --bg-tertiary: #434c5e;
+
+  --text-color: #eceff4;
+  --text-secondary: #d8dee9;
+  --text-selected: #e5e9f0;
+
+  --link-color: #88c0d0;
+  --border-color: #4c566a;
+  --active-color: #81a1c1;
+}
+
+[data-theme="neon-void"] {
+  --bg-primary: #0b0614;
+  --bg-secondary: #140a22;
+  --bg-tertiary: #1c1033;
+
+  --text-color: #f4eaff;
+  --text-secondary: #b7a6d9;
+  --text-selected: #e0ccff;
+
+  --link-color: #d26bff;
+  --border-color: #3a235c;
+  --active-color: #ff6ad5;
+}
+
+[data-theme="synthwave"] {
+  --bg-primary: #120916;
+  --bg-secondary: #1b0f24;
+  --bg-tertiary: #261237;
+
+  --text-color: #ffe9f7;
+  --text-secondary: #ffb3da;
+  --text-selected: #ffd1eb;
+
+  --link-color: #00f0ff;
+  --border-color: #4a1c66;
+  --active-color: #ff4fd8;
+}
+
+[data-theme="acid-matrix"] {
+  --bg-primary: #050a07;
+  --bg-secondary: #0b120e;
+  --bg-tertiary: #111a15;
+
+  --text-color: #d8ffe4;
+  --text-secondary: #7bffb1;
+  --text-selected: #aaffcc;
+
+  --link-color: #00ff88;
+  --border-color: #1c3f2f;
+  --active-color: #39ff9c;
+}
+
+[data-theme="inferno"] {
+  --bg-primary: #140606;
+  --bg-secondary: #1f0b0b;
+  --bg-tertiary: #2b1010;
+
+  --text-color: #fff0e8;
+  --text-secondary: #ffb09a;
+  --text-selected: #ffd3c2;
+
+  --link-color: #ff6b3d;
+  --border-color: #4d1f1a;
+  --active-color: #ff3b00;
+}
+
+
+[data-theme="hologram"] {
+  --bg-primary: #07131a;
+  --bg-secondary: #0c1e29;
+  --bg-tertiary: #132c3b;
+
+  --text-color: #e8fbff;
+  --text-secondary: #a7e8f5;
+  --text-selected: #d1f6ff;
+
+  --link-color: #5df2ff;
+  --border-color: #2b5566;
+  --active-color: #9af4ff;
+}
+
+
+/* High Contrast Theme */
+[data-theme="high-contrast"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #ffffff;
+
+    --text-color: #000000;
+    --text-secondary: #00aa00;
+    --text-selected: #aa00aa;
+    --link-color: #0000ff;
+    --border-color: #000000;
+    --active-color: #aa0000;
+} 
+
+
+
+[data-theme="high-contrast-dark"] {
+  --bg-primary: #0f1115;
+  --bg-secondary: #161922;
+  --bg-tertiary: #1d2130;
+
+  --text-color: #ffffff;
+  --text-secondary: #c7c7c7;
+  --text-selected: #eaeaea;
+
+  --link-color: #00d1ff;
+  --border-color: #2a2f45;
+  --active-color: #7aa2ff;
+}
+
 
 /* =========================================================
    GLOBAL RESET / BASE
@@ -156,7 +301,9 @@ h4 {
     cursor: pointer;
     margin: 0.25rem 0;
     font-style: oblique;
-    color: var(--text-selected)
+    color: var(--text-selected);
+    border-top: 1px solid var(--border-color);
+    margin-right: 60%;
 }
 
 p {
@@ -435,11 +582,11 @@ footer {
 
 a {
   color: var(--link-color);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: var(--text-selected)
 }
 
 /* =========================================================
