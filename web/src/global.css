@@ -470,6 +470,25 @@ header h1 {
 	padding: 1rem 2rem;
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* space between logo and title */
+}
+
+.header-left h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+header img.logo {
+  height: 2.5rem; /* adjust as needed */
+  width: auto;
+  border: 1px solid var(--border-color);
+  border-radius: .5rem;
+}
+
 /* =========================================================
    THEME SWITCHER
    ========================================================= */
@@ -588,6 +607,44 @@ a {
 a:hover {
   color: var(--text-selected)
 }
+
+.header-logo-link {
+	display: flex;
+	align-items: center;
+}
+
+.header-logo {
+	height: 3em; /* scales with header text */
+	width: 3em;
+}
+
+ /* =========================================================
+   HEADER LAYOUT
+   ========================================================= */
+
+header {
+  background-color: var(--bg-secondary);
+  border-bottom: 0.0625rem solid var(--border-color);
+  padding: 1rem 2rem;
+
+  /* flex layout for logo + title */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* left align */
+  gap: 1rem; /* space between logo and title */
+}
+
+header img.logo {
+  height: 2.5rem; /* adjust logo size */
+  width: auto;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
 
 /* =========================================================
    RESPONSIVE BEHAVIOR
