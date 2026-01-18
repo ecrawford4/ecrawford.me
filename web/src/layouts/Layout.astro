@@ -42,7 +42,7 @@ const isActive = (href) => path.startsWith(href);
 
 		<div class="layout">
 			<nav class="nav-left">
-				<h2>Navigation</h2>
+				<h2>Navigation:</h2>
 					<ul>
 						<li class={isActive('/Home') ? 'active' : ''}>
 							<a href="/Home">Home</a>
@@ -51,7 +51,9 @@ const isActive = (href) => path.startsWith(href);
 							<a href="/Resume">Résumé</a>
 						</li>
 					</ul>
-					<h3><i>External Links</i></h3>
+					<h3><i>External Links:</i></h3>
+					<h3><info>&ndash; my profiles:</info>
+					</h3>
 					<ul>
 						<li><a target="_blank" href="/Sitemap">Sitemap</a></li>
 						<li><a target="_blank" href="https://www.linkedin.com/in/ecrawford4/">LinkedIn</a></li>
@@ -59,6 +61,7 @@ const isActive = (href) => path.startsWith(href);
 						<li><a target="_blank" href="https://www.keybr.com/profile/r59aauz">Keybr</a></li>
 						<!-- <li><a href=""></a></li> -->
 					</ul>
+					<h3><info>&ndash; my other websites:</info></h3>
 				</nav>
 			<main class="content">
 				<slot />
@@ -66,6 +69,8 @@ const isActive = (href) => path.startsWith(href);
 			<aside class="nav-right">
 				<h3>About Me</h3>
 				<p>In 2025, I earned a Bachelor of Science in Computer Science from Eastern Washington University.</p>
+
+				<img src="assets/head.jpg" alt="Portrait of Ethan Crawford" width="75%">
 
 				<p>This website is my professional landing page as well as a place for me to publish my work. I am constantly updating this website with new features.</p>
 			</aside>
