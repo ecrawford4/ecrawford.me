@@ -21,15 +21,24 @@ const isActive = (href) => path.startsWith(href);
 				<label for="theme-select" class="sr-only">Theme</label>
 				<select id="theme-select">
 					<option value="dark">Dark</option>
+					<option value="nord">Nord</option>
 					<option value="light">Light</option>
+					<option value="sepia">Sepia</option>
+					<option value="frosty">Frosty</option>
+					<option value="neon-void">Neon Void</option>
+					<option value="synthwave">Synthwave</option>
+					<option value="acid-matrix">Acid Matrix</option>
+					<option value="inferno">Inferno</option>
+					<option value="hologram">Hologram</option>
 					<option value="high-contrast">High Contrast</option>
+					<option value="high-contrast-dark">High Contrast Dark</option>
 				</select>
 			</div>
 		</header>
 
 		<div class="layout">
 			<nav class="nav-left">
-				<h3>Navigation</h3>
+				<h2>Navigation</h2>
 					<ul>
 						<li class={isActive('/Home') ? 'active' : ''}>
 							<a href="/Home">Home</a>
@@ -37,16 +46,14 @@ const isActive = (href) => path.startsWith(href);
 						<li class={isActive('/Resume') ? 'active' : ''}>
 							<a href="/Resume">Résumé</a>
 						</li>
-						<li class={isActive('/Sitemap') ? 'active' : ''}>
-							<a href="/Sitemap">Sitemap</a>
-						</li>
 					</ul>
-					<h3>External Links</h3>
+					<h3><i>External Links</i></h3>
 					<ul>
-						<li><a href="">LinkedIn</a></li>
-						<li><a href="">GitHub</a></li>
-						<li><a href=""></a></li>
-						<li><a href=""></a></li>
+						<li><a target="_blank" href="/Sitemap">Sitemap</a></li>
+						<li><a target="_blank" href="https://www.linkedin.com/in/ecrawford4/">LinkedIn</a></li>
+						<li><a target="_blank" href="https://github.com/ecrawford4/">GitHub</a></li>
+						<li><a target="_blank" href="https://www.keybr.com/profile/r59aauz">Keybr</a></li>
+						<!-- <li><a href=""></a></li> -->
 					</ul>
 				</nav>
 			<main class="content">
@@ -54,7 +61,9 @@ const isActive = (href) => path.startsWith(href);
 			</main>
 			<aside class="nav-right">
 				<h3>About Me</h3>
-				<p>Secondary content or metadata.</p>
+				<p>In 2025, I earned a Bachelor of Science in Computer Science from Eastern Washington University.</p>
+
+				<p>This website is my professional landing page as well as a place for me to publish my work. I am constantly updating this website with new features.</p>
 			</aside>
 		</div>
 		<footer>© 2026 Ethan Crawford</footer>
@@ -80,7 +89,7 @@ const isActive = (href) => path.startsWith(href);
 			const select = document.getElementById('theme-select');
 			const savedTheme = localStorage.getItem('theme');
 
-			if (savedTheme) {
+			if (savedTheme && savedTheme !== 'dark') {
 				document.documentElement.dataset.theme = savedTheme;
 				select.value = savedTheme;
 			}
