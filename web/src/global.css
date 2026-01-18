@@ -205,6 +205,12 @@ body {
   line-height: 1.6;
 }
 
+.nav-right img {
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  margin-top: .75rem;
+}
+
 /* =========================================================
    AUTO-HIDING SCROLLBAR
    ========================================================= */
