@@ -704,6 +704,28 @@ header h1 {
   .mobile-nav.open {
     display: block;
   }
+  
+  .card .section:hover .section-content {
+    max-height: 0;
+    padding: 0;
+  }
+
+  .card .section.open .section-content {
+    max-height: 500px;
+    padding: 0.5rem 0;
+  }
+
+  .card .section h2,
+  .card .section h3,
+  .card .section h4 {
+    cursor: pointer;
+  }
+
+  .card .section.open h2,
+  .card .section.open h3,
+  .card .section.open h4 {
+    color: var(--text-selected);
+  }
 }
 
 

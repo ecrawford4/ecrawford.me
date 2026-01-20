@@ -158,12 +158,17 @@ const isActive = (href) => path.startsWith(href);
 		<script>
 			const sections = document.querySelectorAll('.card .section');
 
+			function isMobile() {
+				return window.matchMedia('(max-width: 56rem)').matches;
+			}
+
 			sections.forEach(section => {
 				const header = section.querySelector('h2, h3, h4');
-
 				if (!header) return;
 
 				header.addEventListener('click', () => {
+				if (!isMobile()) return; // desktop: ignore clicks
+
 				const isOpen = section.classList.contains('open');
 
 				// close all sections
