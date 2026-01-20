@@ -162,23 +162,54 @@ const isActive = (href) => path.startsWith(href);
 				return window.matchMedia('(max-width: 56rem)').matches;
 			}
 
+			function closeSection(section) {
+				const content = section.querySelector('.section-content');
+				content.style.maxHeight = '0';
+				section.classList.remove('open');
+			}
+
+			function openSection(section) {
+				const content = section.querySelector('.section-content');
+				content.style.maxHeight = content.scrollHeight + 'px';
+				section.classList.add('open');
+			}
+
 			sections.forEach(section => {
 				const header = section.querySelector('h2, h3, h4');
-				if (!header) return;
+				const content = section.querySelector('.section-content');
+				if (!header || !content) return;
+
+				// initial collapsed state
+				content.style.maxHeight = '0';
 
 				header.addEventListener('click', () => {
-				if (!isMobile()) return; // desktop: ignore clicks
+				if (!isMobile()) return;
 
 				const isOpen = section.classList.contains('open');
 
-				// close all sections
-				sections.forEach(s => s.classList.remove('open'));
+				// close all
+				sections.forEach(s => {
+					if (s !== section) closeSection(s);
+				});
 
 				// toggle current
-				if (!isOpen) {
-					section.classList.add('open');
+				if (isOpen) {
+					closeSection(section);
+				} else {
+					openSection(section);
 				}
 				});
+			});
+
+			// Recalculate heights on resize (rotation, viewport changes)
+			window.addEventListener('resize', () => {
+				if (!isMobile()) {
+				sections.forEach(s => {
+					const content = s.querySelector('.section-content');
+					content.style.maxHeight = '';
+					s.classList.remove('open');
+				});
+				}
 			});
 		</script>
 	</body>

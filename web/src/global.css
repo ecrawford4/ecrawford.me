@@ -705,13 +705,21 @@ header h1 {
     display: block;
   }
   
-  .card .section:hover .section-content {
+  /* .card .section:hover .section-content {
     max-height: 0;
     padding: 0;
   }
 
   .card .section.open .section-content {
     max-height: 500px;
+    padding: 0.5rem 0;
+  } */
+  .card .section-content {
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+  }
+
+  .card .section.open .section-content {
     padding: 0.5rem 0;
   }
 
