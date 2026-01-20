@@ -203,6 +203,9 @@ body {
   background-color: var(--bg-primary);
   color: var(--text-color);
   line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .nav-right img {
@@ -573,19 +576,22 @@ footer {
 .layout {
   display: grid;
   grid-template-columns: 24rem 1fr 24rem;
-  min-height: calc(100vh - 8rem); /* minimum, not fixed */
+  height: 100%;
+  /* flex: 1;             body is flex column, so this works */
+  /* min-height: 0;       important so children can scroll */
 }
-
-
-/* Left and right static navigation */
+/* Stretch left and right navs to full height */
+.mobile-nav,
 .nav-left,
 .nav-right {
   background-color: var(--bg-secondary);
   padding: 1rem;
+
 }
 
-.nav-left {
+.mobile-nav {
   border-right: 0.0625rem solid var(--border-color);
+  padding: 0px;
 }
 
 .nav-right {
