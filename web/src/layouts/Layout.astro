@@ -21,6 +21,11 @@ const isActive = (href) => path.startsWith(href);
 				<h1>Ethan N. Crawford</h1>
 			</div>
 
+			<button class="mobile-menu-toggle" aria-expanded="false" aria-label="Menu">
+				☰
+			</button>
+
+
 			<div class="theme-switcher">
 				<label for="theme-select" class="sr-only">Theme</label>
 				<select id="theme-select">
@@ -41,8 +46,10 @@ const isActive = (href) => path.startsWith(href);
 		</header>
 
 		<div class="layout">
-			<nav class="nav-left">
-				<h2>Navigation:</h2>
+			<div class="mobile-nav">
+
+				<nav class="nav-left">
+					<h2>Navigation:</h2>
 					<ul>
 						<li class={isActive('/Home') ? 'active' : ''}>
 							<a href="/Home">Home</a>
@@ -73,25 +80,32 @@ const isActive = (href) => path.startsWith(href);
 						<li><a target="_blank" href="https://landing.ecrawford.me/">Landing Page</a></li>
 					</ul>
 				</nav>
+
+				<!-- <main class="content">
+					<slot />
+				</main> -->
+				
+				<aside class="nav-right">
+					<h3>About Me</h3>
+					<p>In 2025, I earned a Bachelor of Science in Computer Science from Eastern Washington University.</p>
+					
+					<img src="/assets/head.jpg" alt="Portrait of Ethan Crawford" width="75%">
+					
+					<p>This website is my professional landing page as well as a place for me to publish my work. I am constantly updating this website with new features.</p>
+					
+					<h3><info>&ndash; my pinned projects:</info></h3>
+					<ul>
+						<li><a target="_blank" href="https://github.com/ecrawford4/seedgenerator">Seed Generator</a></li>
+						<li><a target="_blank" href="https://github.com/ecrawford4/sitemap-generator/">Sitemap Generator</a></li>
+						<li><a target="_blank" href="https://github.com/ecrawford4/tex-template-notes">Latex Template</a></li>
+						<li><a target="_blank" href="https://github.com/ecrawford4/renew_ip">Renew IP</a></li>
+					</ul>
+				</aside>
+			</div>
+
 			<main class="content">
 				<slot />
 			</main>
-			<aside class="nav-right">
-				<h3>About Me</h3>
-				<p>In 2025, I earned a Bachelor of Science in Computer Science from Eastern Washington University.</p>
-
-				<img src="/assets/head.jpg" alt="Portrait of Ethan Crawford" width="75%">
-
-				<p>This website is my professional landing page as well as a place for me to publish my work. I am constantly updating this website with new features.</p>
-
-				<h3><info>&ndash; my pinned projects:</info></h3>
-				<ul>
-					<li><a target="_blank" href="https://github.com/ecrawford4/seedgenerator">Seed Generator</a></li>
-					<li><a target="_blank" href="https://github.com/ecrawford4/sitemap-generator/">Sitemap Generator</a></li>
-					<li><a target="_blank" href="https://github.com/ecrawford4/tex-template-notes">Latex Template</a></li>
-					<li><a target="_blank" href="https://github.com/ecrawford4/renew_ip">Renew IP</a></li>
-				</ul>
-			</aside>
 		</div>
 		<footer>© 2026 Ethan Crawford</footer>
 
@@ -131,6 +145,38 @@ const isActive = (href) => path.startsWith(href);
 					document.documentElement.dataset.theme = theme;
 					localStorage.setItem('theme', theme);
 				}
+			});
+		</script>
+
+		<script>
+			const menuBtn = document.querySelector('.mobile-menu-toggle');
+			const mobileNav = document.querySelector('.mobile-nav');
+
+			menuBtn.addEventListener('click', () => {
+				const open = mobileNav.classList.toggle('open');
+				menuBtn.setAttribute('aria-expanded', open);
+			});
+		</script>
+
+		<script>
+			const sections = document.querySelectorAll('.card .section');
+
+			sections.forEach(section => {
+				const header = section.querySelector('h2, h3, h4');
+
+				if (!header) return;
+
+				header.addEventListener('click', () => {
+				const isOpen = section.classList.contains('open');
+
+				// close all sections
+				sections.forEach(s => s.classList.remove('open'));
+
+				// toggle current
+				if (!isOpen) {
+					section.classList.add('open');
+				}
+				});
 			});
 		</script>
 	</body>

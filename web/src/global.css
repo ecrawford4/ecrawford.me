@@ -656,6 +656,60 @@ header h1 {
   color: var(--text-color);
 }
 
+/* =========================================================
+   MOBILE NAV DROPDOWN
+   ========================================================= */
+
+.mobile-menu-toggle {
+  display: none;
+  background: none;
+  border: 0.0625rem solid var(--border-color);
+  border-radius: 0.5rem;
+  color: var(--text-color);
+  font-size: 1.25rem;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 56rem) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+  }
+
+  .mobile-nav {
+    display: none;
+    background-color: var(--bg-secondary);
+    border-bottom: 0.0625rem solid var(--border-color);
+    padding: 1rem;
+  }
+
+  .mobile-nav.open {
+    display: block;
+  }
+
+  .nav-left,
+  .nav-right {
+    border: none;
+    padding: 0;
+    margin-bottom: 1rem;
+  }
+
+  .card .section:hover .section-content {
+    max-height: 0;
+    padding: 0;
+  }
+
+  .card .section.open .section-content {
+    max-height: 500px;
+    padding: 0.5rem 0;
+  }
+}
+
+
 
 /* =========================================================
    RESPONSIVE BEHAVIOR
