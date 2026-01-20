@@ -679,6 +679,10 @@ header h1 {
     display: none;
   }
 
+  div.header-left h1.name-title {
+    visibility: hidden;
+  }
+
   /* Show nav when inside mobile dropdown */
   .mobile-nav .nav-left,
   .mobile-nav .nav-right {
