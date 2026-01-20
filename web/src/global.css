@@ -569,8 +569,9 @@ footer {
 .layout {
   display: grid;
   grid-template-columns: 24rem 1fr 24rem;
-  height: calc(100vh - 8rem); /* header + footer combined */
+  min-height: calc(100vh - 8rem); /* minimum, not fixed */
 }
+
 
 /* Left and right static navigation */
 .nav-left,
@@ -672,8 +673,21 @@ header h1 {
 }
 
 @media (max-width: 56rem) {
+  /* Hide navs ONLY as grid columns */
+  .layout > .nav-left,
+  .layout > .nav-right {
+    display: none;
+  }
+
+  /* Show nav when inside mobile dropdown */
+  .mobile-nav .nav-left,
+  .mobile-nav .nav-right {
+    display: block;
+  }
+
   .layout {
     grid-template-columns: 1fr;
+    height: auto;
   }
 
   .mobile-menu-toggle {
@@ -690,24 +704,8 @@ header h1 {
   .mobile-nav.open {
     display: block;
   }
-
-  .nav-left,
-  .nav-right {
-    border: none;
-    padding: 0;
-    margin-bottom: 1rem;
-  }
-
-  .card .section:hover .section-content {
-    max-height: 0;
-    padding: 0;
-  }
-
-  .card .section.open .section-content {
-    max-height: 500px;
-    padding: 0.5rem 0;
-  }
 }
+
 
 
 
@@ -719,11 +717,6 @@ header h1 {
   .layout {
     grid-template-columns: 1fr;
     height: auto;
-  }
-
-  .nav-left,
-  .nav-right {
-    display: none;
   }
 
   .content {
