@@ -47,7 +47,6 @@ const isActive = (href) => path.startsWith(href);
 
 		<div class="layout">
 			<div class="mobile-nav">
-
 				<nav class="nav-left">
 					<h2>Navigation:</h2>
 					<ul>
@@ -80,28 +79,28 @@ const isActive = (href) => path.startsWith(href);
 						<li><a target="_blank" href="https://landing.ecrawford.me/">Landing Page</a></li>
 					</ul>
 				</nav>
-
-				<main class="content">
-					<slot />
-				</main>
-				
-				<aside class="nav-right">
-					<h3>About Me</h3>
-					<p>In 2025, I earned a Bachelor of Science in Computer Science from Eastern Washington University.</p>
-					
-					<img src="/assets/head.jpg" alt="Portrait of Ethan Crawford" width="75%">
-					
-					<p>This website is my professional landing page as well as a place for me to publish my work. I am constantly updating this website with new features.</p>
-					
-					<h3><info>&ndash; my pinned projects:</info></h3>
-					<ul>
-						<li><a target="_blank" href="https://github.com/ecrawford4/seedgenerator">Seed Generator</a></li>
-						<li><a target="_blank" href="https://github.com/ecrawford4/sitemap-generator/">Sitemap Generator</a></li>
-						<li><a target="_blank" href="https://github.com/ecrawford4/tex-template-notes">Latex Template</a></li>
-						<li><a target="_blank" href="https://github.com/ecrawford4/renew_ip">Renew IP</a></li>
-					</ul>
-				</aside>
 			</div>
+
+			<main class="content">
+				<slot />
+			</main>
+			
+			<aside class="nav-right">
+				<h3>About Me</h3>
+				<p>In 2025, I earned a Bachelor of Science in Computer Science from Eastern Washington University.</p>
+				
+				<img src="/assets/head.jpg" alt="Portrait of Ethan Crawford" width="75%">
+				
+				<p>This website is my professional landing page as well as a place for me to publish my work. I am constantly updating this website with new features.</p>
+				
+				<h3><info>&ndash; my pinned projects:</info></h3>
+				<ul>
+					<li><a target="_blank" href="https://github.com/ecrawford4/seedgenerator">Seed Generator</a></li>
+					<li><a target="_blank" href="https://github.com/ecrawford4/sitemap-generator/">Sitemap Generator</a></li>
+					<li><a target="_blank" href="https://github.com/ecrawford4/tex-template-notes">Latex Template</a></li>
+					<li><a target="_blank" href="https://github.com/ecrawford4/renew_ip">Renew IP</a></li>
+				</ul>
+			</aside>
 
 			<!-- <main class="content">
 				<slot />
