@@ -288,7 +288,7 @@ info {
 
 /* Expand only the section being hovered */
 .card .section:hover .section-content {
-    max-height: 500px;      /* enough for most content, adjust if needed */
+    max-height: 5em;      /* enough for most content, adjust if needed */
     padding: 0.5rem 0;      /* spacing when expanded */
 }
 
