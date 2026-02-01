@@ -278,18 +278,22 @@ info {
     margin-bottom: 1rem;
 }
 
-/* Collapsed content */
+/* Base (collapsed) */
 .card .section-content {
-    max-height: 0;          /* hide content */
-    overflow: hidden;       /* prevent scrollbars */
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    padding: 0 0;           /* no vertical spacing when collapsed */
-    }
+  max-height: 0;
+  overflow: hidden;
+}
 
-/* Expand only the section being hovered */
-.card .section:hover .section-content {
-    max-height: none;      /* enough for most content, adjust if needed */
-    padding: 0.5rem 0;      /* spacing when expanded */
+/* Desktop hover behavior */
+@media (min-width: 56rem) {
+  .card .section-content {
+    transition: none;         
+  }
+
+  .card .section:hover .section-content {
+    max-height: 1000em;        /* large enough for all content */
+    overflow: visible;
+  }
 }
 
 .card .section .section-content p {
